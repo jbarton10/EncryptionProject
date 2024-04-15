@@ -1,0 +1,6 @@
+This file is used for testing purposes.  
+
+We are trying to make sure that the file properally encrypts
+everything and can decrypt into the same format.
+
+The quick brown fox jumps over the lazy dog. 
