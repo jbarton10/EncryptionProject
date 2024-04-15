@@ -11,23 +11,36 @@ def encode(uFile, offset):
     for line in f:
         for letter in line:
             letter.lower()
-            if letter in alph:
+            if letter not in alph:
+                encF.write(letter)
+            elif letter in alph:
                 letterPos = alph.index(letter)
                 letterPos +=  offset
-                encLetter = alph[letterPos]
+                encLetter = alph[letterPos % len(alph)]
+                #encLetter = alph[letterPos]
                 encF.write(encLetter)
     
     f.close()
     encF.close()
 
 
-            
-    
-    return
-
-
 def decode(uFile, offset):
-    return
+    f = open(uFile, "r")
+    decF = open("decryptedFile.txt", "w")
+    alph = list(string.ascii_lowercase)
+    
+    for line in f:
+        for letter in line:
+            letter.lower()
+            if letter not in alph:
+                decF.write(letter)
+            elif letter in alph:
+                letterPos = alph.index(letter)
+                letterPos -=  offset
+                encLetter = alph[letterPos % len(alph)]
+                #encLetter = alph[letterPos]
+                decF.write(encLetter)
+                
 
 def checkFile(uFile):
     print(uFile)
@@ -55,9 +68,13 @@ def main():
 
 
     elif uInput.lower() == "decode":
-        uFile = input("Please enter the file name you would like to deocde:  ")
+        uFile = input("Please enter the file name you would like to decode:  ")
         checkFile(uFile)
-        decode(uFile, offset)
+        offset = int(input("Please enter the original offset of the file to be decoded:  "))
+        if type(offset) == int:
+            decode(uFile, offset)
+        else:
+            print("Offset must be an integer\n")
 
 
     else:
