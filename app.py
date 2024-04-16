@@ -10,14 +10,13 @@ def encode(uFile, offset):
 
     for line in f:
         for letter in line:
-            letter.lower()
+            letter =letter.lower()
             if letter not in alph:
                 encF.write(letter)
             elif letter in alph:
                 letterPos = alph.index(letter)
                 letterPos +=  offset
                 encLetter = alph[letterPos % len(alph)]
-                #encLetter = alph[letterPos]
                 encF.write(encLetter)
     
     f.close()
@@ -31,15 +30,17 @@ def decode(uFile, offset):
     
     for line in f:
         for letter in line:
-            letter.lower()
+            letter = letter.lower()
             if letter not in alph:
                 decF.write(letter)
             elif letter in alph:
                 letterPos = alph.index(letter)
                 letterPos -=  offset
                 encLetter = alph[letterPos % len(alph)]
-                #encLetter = alph[letterPos]
                 decF.write(encLetter)
+
+    f.close()
+    decF.close()
                 
 
 def checkFile(uFile):

@@ -1,1 +1,6 @@
-hisfileisusedfortestingpurposesearetryingtomakesurethatthefileproperallyencryptseverythingandcandecryptintothesameformathequickbrownfoxjumpsoverthelazydog
+this file is used for testing purposes.  
+
+we are trying to make sure that the file properally encrypts
+everything and can decrypt into the same format.
+
+the quick brown fox jumps over the lazy dog. 
